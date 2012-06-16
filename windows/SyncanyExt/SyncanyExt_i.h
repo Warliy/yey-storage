@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0555 */
-/* at Mon May 30 23:57:41 2011
+/* at Sat Jun 16 22:54:58 2012
  */
 /* Compiler settings for SyncanyExt.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 7.00.0555 
