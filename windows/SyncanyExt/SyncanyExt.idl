@@ -1,0 +1,46 @@
+// SyncanyExt.idl : IDL source for SyncanyExt
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (SyncanyExt.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(4A362310-A3AA-4B47-A629-2F6F314B771B),
+	pointer_default(unique)
+]
+interface IContextMenuExt : IUnknown{
+};
+[
+	object,
+	uuid(D720C2C7-4EC5-4E78-AD33-E792A5A6F188),
+	pointer_default(unique)
+]
+interface IShellIconExt : IUnknown{
+};
+[
+	uuid(62459E51-3ADB-4BF4-8BB3-5148377ABAAB),
+	version(1.0),
+]
+library SyncanyExtLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(8E65E24B-A16C-4DDB-ABE9-D4940C657648)		
+	]
+	coclass ContextMenuExt
+	{
+		[default] interface IContextMenuExt;
+	};
+	[
+		uuid(9B527650-9FC6-4082-B8D9-9CB63B34D65E)		
+	]
+	coclass ShellIconExt
+	{
+		[default] interface IShellIconExt;
+	};
+};
+

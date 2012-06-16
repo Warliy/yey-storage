@@ -1,0 +1,28 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {8E65E24B-A16C-4DDB-ABE9-D4940C657648} = s 'Syncany Context Menu Extensions'
+		{
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+		}
+	}
+	NoRemove AllFilesystemObjects
+	{
+		NoRemove ShellEx
+		{
+			NoRemove ContextMenuHandlers
+			{
+				ForceRemove Sycany = s '{8E65E24B-A16C-4DDB-ABE9-D4940C657648}'
+				{
+					
+
+				}
+			}
+		}
+	}
+	NoRemove All
+}

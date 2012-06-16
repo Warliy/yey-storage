@@ -1,0 +1,30 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {9B527650-9FC6-4082-B8D9-9CB63B34D65E} = s 'Syncany Shell Icon Extensions'
+		{
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+		}
+	}
+}
+HKLM
+{
+	NoRemove Software
+	{
+		NoRemove TortoiseOverlays
+		{
+			NoRemove Normal
+			{
+				val Syncany = s '{9B527650-9FC6-4082-B8D9-9CB63B34D65E}'
+			}
+			NoRemove Modified
+			{
+				val Syncany = s '{9B527650-9FC6-4082-B8D9-9CB63B34D65E}'
+			}
+		}
+	}
+}
