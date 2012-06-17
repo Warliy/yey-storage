@@ -42,7 +42,7 @@ namespace SparkleShare {
 
         public SparkleSetupWindow ()
         {
-            Title      = "SparkleShare Setup";
+            Title      = "Yey Storage Setup";
             Width      = 640;
             Height     = 440;
             ResizeMode = ResizeMode.NoResize;

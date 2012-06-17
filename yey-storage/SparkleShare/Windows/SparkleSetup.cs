@@ -159,7 +159,7 @@ namespace SparkleShare {
 
                     case PageType.Invite: {
                         Header      = "You've received an invite!";
-                           Description = "Do you want to add this project to SparkleShare?";
+                           Description = "Do you want to add this project to Yey-Storage?";
         
                         
                         TextBlock address_label = new TextBlock () {
