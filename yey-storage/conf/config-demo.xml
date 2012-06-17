@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<syncany>
+	<username>Philipp</username> <!-- optional -->
+	<machinename>platop</machinename> <!-- optional -->
+	<service-enabled>false</service-enabled> <!-- optional -->
+	<autostart>true</autostart> <!-- optional -->
+	<notifications>true</notifications> <!-- optional -->
+    
+	<database> <!-- optional -->
+		<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/syncany"/>
+		<property name="javax.persistence.jdbc.password" value="syncany"/>
+		<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+		<property name="javax.persistence.jdbc.user" value="syncany"/>
+		<property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>			
+	</database>
+
+	<!--<database>
+      <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:file:///home/pheckel/.syncany/db"/>
+      <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+	</database>-->
+      			
+	<cache> <!-- optional -->
+		<!--<folder>/home/pheckel/.syncany/cache</folder>--> <!-- optional -->
+		<size>1024</size> <!-- optional -->
+	</cache>	
+	
+	<profiles>
+		<profile id="1">
+			<enabled>true</enabled>
+			<name>Private (local)</name> <!-- optional -->			
+
+			<repository>
+				<chunksize>1024</chunksize> <!-- optional -->
+			
+				<connection type="local">
+					<folder>/home/pheckel/Coding/syncany-localrepo</folder>
+					<throttle-kbps>500</throttle-kbps> <!-- optional -->
+				</connection>	
+			
+				<encryption>
+					<password>encpass</password>
+					<cipher>AES</cipher> <!-- optional -->
+					<keylength>128</keylength> <!-- optional -->
+				</encryption>
+			</repository>	
+			
+			<folders>
+				<folder>
+					<active>true</active>
+					<local>/home/pheckel/Coding/syncany-platop-pictures</local>
+					<remote>pictures</remote>
+				</folder>
+				<folder>
+					<active>true</active>
+					<local>/home/pheckel/Coding/syncany-platop-videos</local>
+					<remote>videos</remote>
+				</folder>		
+			</folders>
+		</profile>		
+		
+		<profile id="2">
+			<enabled>false</enabled>		
+			<name>More Private Stuff (amazon s3)</name>
+			
+			<repository>
+				<chunksize>1024</chunksize> <!-- optional -->
+			
+				<connection type="s3">
+					<accesskey>AKIAI.....</accesskey>
+					<secretkey>.....</secretkey>
+					<bucket>pheckel-syncany</bucket>
+					<location>EU</location> <!-- optional, default: US -->
+				</connection>	
+			
+				<encryption>
+					<password>encpass</password>
+					<cipher>AES</cipher> <!-- optional -->
+					<keylength>128</keylength> <!-- optional -->
+				</encryption>
+			</repository>			
+			
+			<folders>
+				<folder>
+					<active>true</active>
+					<local>/home/pheckel/Coding/syncany-platop-xxx</local>
+					<remote>xxx</remote>
+				</folder>
+			</folders>
+		</profile>		
+		
+		<profile id="3">
+			<enabled>false</enabled>
+			<name>Something else (imap)</name>
+
+			<repository>
+				<chunksize>1024</chunksize> <!-- optional -->
+			
+				<connection type="imap">
+					<host>imap.gmail.com</host>
+					<port>993</port>
+					<username>...@gmail.com</username>
+					<password>GZJ....</password>
+					<security>SSL</security>
+					<folder>CLONEBOX3</folder>
+				</connection>	
+			
+				<encryption>
+					<password>test</password>
+					<cipher>AES</cipher> <!-- optional -->
+					<keylength>128</keylength> <!-- optional -->
+				</encryption>
+			</repository>
+			
+			<folders>
+				<folder>
+					<active>false</active>
+					<local>/home/pheckel/Coding/syncany-platop-xxx</local>
+					<remote>xxx</remote>
+				</folder>
+			</folders>
+		</profile>					
+		
+	</profiles>
+</syncany>

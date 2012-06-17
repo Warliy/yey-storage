@@ -1,0 +1,51 @@
+SYNCANY INSTALLATION INSTRUCTIONS
+---------------------------------
+For more information check out the Syncany website at
+http://www.syncany.org
+
+
+1. REQUIREMENTS
+---------------
+Syncany has the following requirements. Note that the instructions below 
+show how to install these libraries.
+
+* Java 6 JRE, e.g. OpenJDK JRE or Oracle JRE
+
+
+2. INSTALLATION
+---------------
+       __________________________________________________________________
+      |                                                                  |
+      | NOTE: If you are using the Launchpad / BZR version, please refer |
+      |       to the DEVELOPMENT file for installation instructions.     |
+      |__________________________________________________________________|
+
+2.1. INSTALLING SYNCANY ON LINUX
+--------------------------------
+
+If you are using a Debian based system (e.g. Ubuntu), simply follow the steps
+below to install the required libraries, extract the Syncany archive and
+launch the application:
+  
+$ sudo apt-get install python-notify
+$ tar zxvf syncany-*.tar.gz
+$ cd syncany-*/bin
+$ ./syncany.sh
+
+
+2.2. INSTALLING SYNCANY ON WINDOWS/MAC
+--------------------------------------
+Windows and Mac are not yet supported. If you want to help developing the bits 
+and pieces missing for these versions, please check out the DEVELOPMENT file.
+
+
+3. CONFIGURATION
+----------------
+All important configuration can be done using the Syncany preferences window.
+However, for debug/development purposes, manual configuration might be
+necessary.
+
+By default, Syncany stores all user data at ~/.syncany. For more information on
+the structure of this directory, check out the DEVELOPMENT file.
+
+

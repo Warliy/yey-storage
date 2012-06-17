@@ -1,0 +1,5 @@
+$ apt-get install libnautilus-extension-dev
+
+
+http://zetcode.com/articles/netbeanscdevelopment/
+http://wiki.netbeans.org/GtkApplicationInNetBeans

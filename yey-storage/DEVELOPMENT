@@ -1,0 +1,126 @@
+DEVELOPMENT
+-----------
+Syncany is far from complete or stable. It needs a lot of work and refactoring.
+If you want to help, check out the code at Launchpad and/or drop me an e-mail:
+philipp.heckel@gmail.com
+
+https://launchpad.net/syncany
+
+
+1. SOURCE CODE
+--------------
+The code is hosted on Launchpad and uses Bazaar (bzr) as version control
+system. Use the following commands to check out the latest version (trunk).
+
+$ bzr branch lp:syncany
+$ cd syncany
+
+Inside this directory, you'll see the Syncany main application in the 'syncany'
+folder, and the Nautilus extension in the 'nautilus-syncany' folder.
+
+
+2. SYNCANY
+----------
+Syncany is almost entirely based on Java.
+The development IDE is NetBeans 7.
+
+
+2.1. BUILD REQUIREMENTS
+-----------------------
+* JDK 6, or higher
+* Apache Ant
+* Other libraries, cp. INSTALL file or below
+
+On Ubuntu, this should do the trick to install all dependencies:
+
+$ sudo add-apt-repository \
+    "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
+$ sudo apt-get update
+$ sudo apt-get install sun-java6-jdk ant python-notify
+
+
+2.2. BUILDING & RUNNING
+-----------------------
+Syncany can be either built and run from within the NetBeans IDE 7, or after
+it has been built using Apache Ant. After building, simple call the wrapper
+script 'bin/syncany.sh' from the 'dist' directory:
+
+$ ant
+$ dist/bin/syncany.sh
+
+To specify an alternative config directory, e.g. to start a second instance
+of Syncany on the same machine, use the --config/-c parameter:
+
+$ dist/bin/syncany.sh -c ~/.syncany2
+
+In case you do not want to use the wrapper script, be able to run Syncany using
+the command following command. Make sure that all required libraries are in the
+Java classpath (-cp parameter).
+
+$ ant
+$ cd dist/
+$ java -cp ... -Dsyncany.home=. -Djava.library.path=lib/ \
+    -Djava.util.logging.config.file=conf/logging.conf org.syncany.Syncany
+
+
+3. SYNCANY NAUTILUS EXTENSION
+-----------------------------
+The Syncany Nautilus extension is a fork from the Dropbox Nautilus extension.
+In fact, its code is almost identical to the Dropbox version.
+
+
+3.1. BUILD REQUIREMENTS
+-----------------------
+It requires a couple of development libraries. On a Debian based system, 
+simply run:
+
+$ sudo apt-get install libgtk2.0-dev libatk1.0-dev libcairo2-dev \
+    libgdk-pixbuf2.0-dev libpango1.0-dev libglib2.0-dev libpixman-1-dev \
+    libfreetype6-dev libpng12-dev libnautilus-extension-dev
+    
+
+3.2. BUILDING
+-------------
+To build the Nautilus extension, simply change to the nautilus-syncany directory
+and `make` it. If you installed all dependencies, this should work.
+
+$ cd nautilus-syncany
+$ make
+
+After successfully compiling it, you will find the library at 
+dist/*/GNU-Linux-*/libnautilus-syncany.so.
+
+
+3.3. INSTALLING
+---------------
+Nautilus extensions reside in /usr/lib/nautilus/extensions-2.0/. So either you 
+copy it there, or you link to it. Then restart nautilus.
+
+$ sudo cp dist/*/GNU-Linux-*/libnautilus-syncany.so \
+    /usr/lib/nautilus/extensions-2.0/
+$ nautilus -q && killall nautilus
+
+
+3. CONFIGURATION
+----------------
+All important configuration can be done using the Syncany preferences window.
+However, for debug/development purposes, manual configuration might be 
+necessary.
+
+By default, Syncany stores all user data at ~/.syncany (this can be changed
+using the --config/-c parameter). Relative to the config directory, the 
+following files and directories can be found:
+
+- config.xml  Main configuration file. 
+
+- cache/      Local cache that temporarily stores file chunks and metadata.
+              If Syncany is not running, it can be safely deleted.
+          
+- db/         Derby database directory. The database is created when Syncany
+              first persists any file versions. Deleting this directory
+              resets the local version history. If anything doesn't work as
+              expected, delete this folder and restart Syncany.
+            
+- profiles/   Stores the profile pictures of other users.
+
+
