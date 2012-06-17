@@ -63,13 +63,13 @@ namespace SparkleShare {
                     
                     switch (type) {
                     case PageType.Setup: {
-                        Header      = "Welcome to SparkleShare!";
-                           Description = "Before we get started, what's your name and email?\n" +
-                            "Don't worry, this information will only be visible to team members.";
+                        Header      = "Welcome to Yey Storage!";
+                           Description = "Before we get started, what's your email and password?\n" +
+                            "Don't worry, this information will not be shared to anyone..";
         
                         
                         TextBlock name_label = new TextBlock () {
-                            Text = "Full Name:",
+                            Text = "Username:",
                             Width = 150,
                             TextAlignment = TextAlignment.Right,
                             FontWeight = FontWeights.Bold
@@ -82,7 +82,7 @@ namespace SparkleShare {
                         
                         
                         TextBlock email_label = new TextBlock () {
-                            Text    = "Email:",
+                            Text    = "Password:",
                             Width = 150,
                             TextAlignment = TextAlignment.Right,
                             FontWeight = FontWeights.Bold
